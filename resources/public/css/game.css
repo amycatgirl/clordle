@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+     width: 100%;
+     height: 100vh;
+     margin: 0;
+}
+
+header {
+       width: 100%;
+       height: 5rem;
+
+       display: inline-flex;
+       justify-content: center;
+       align-items: center;
+       background: #222222;
+       color: white;
+       margin-bottom: 1rem;
+}
+
+header div.actions,
+div.center-wordmark {
+       margin-left: auto;
+}
+
+header div.actions {
+       margin-right: 1rem;
+}
+
+div#game, div#game .golumn {
+	 display: flex;
+	 flex-direction: column;
+	 align-items: center;
+}
+
+div#game .golumn,
+div.row {
+	gap: .4rem;
+}
+
+
+div.row {
+	display: flex;
+	flex-direction: row;
+}
+
+div.cell {
+	width: 70px;
+	height: 70px;
+
+	text-align: center;
+	font-family: sans-serif;
+	font-size: 3em;
+	font-weight: bold;
+	text-transform: uppercase;
+
+	color: white;
+}
+
+div.cell.small {
+        width: 30px;
+	height: 30px;
+	font-size: 1em;
+}
+
+div.cell.none {
+	border: 3px solid darkgrey;
+	color: black;
+}
+
+div.cell.miss {
+	background: #787c7f;
+}
+
+div.cell.inword {
+	background: #c8b653;
+}
+
+div.cell.exact {
+	background: #6ca965;
+}
+
+div#game div.form {
+	 margin-top: 1rem;
+	 width: 60%;
+}
+
+div#game div.form input {
+	 width: 100%;
+	 height: 4rem;
+	 border: 3px solid #222222;
+}
+
+div#game div.form input:focus-visible {
+	 outline:none;
+	 text-align: center;
+	 font-size: 2em;
+	 text-transform: uppercase;
+	 font-weight: bold;
+}
+
+div#game div.form div#used-chars {
+	 display: flex;
+	 flex-direction: row;
+	 max-width: 50%;
+}
