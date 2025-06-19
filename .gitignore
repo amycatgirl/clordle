@@ -1,5 +1,6 @@
-*.*~
-.clj-kondo
-.cpcache
-.lsp
-.nrepl-port
+*
+!src
+!resources
+!project.clj
+!.gitignore
+!LICENSE
