@@ -1,6 +1,8 @@
 *
 !src
 !resources
+!screenies
 !project.clj
 !.gitignore
 !LICENSE
+!README.org

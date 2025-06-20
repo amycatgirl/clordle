@@ -1,0 +1,26 @@
+#+title: Clordle
+#+author: Amy
+#+date: <2025-06-19 Thu>
+#+startup: inlineimages
+
+Clordle is a clone of NYT Games' Wordle, written entirely in Clojure, with a minimal frontend written using vanilla JS and HTML.
+
+* Building
+To build the project, you first need to install [[https://clojure.org][Clojure]] and [[https://leiningen.org/#install][Leiningen]].
+Then, run ~lein uberjar~ to create a uberjar inside the newly created ~dist~ directory.
+
+* Screenshots
+#+caption: A screenshot of the Clordle interface.
+#+name: fig:game_sample 
+[[file:screenies/game_sample.png]]
+
+#+caption: A screenshot of the win dialog in Clordle.
+#+name: fig:win_sample
+[[file:screenies/win_sample.jpg]]
+
+#+caption: A screenshot of the game over dialog in Clordle.
+#+name: fig:game_over_sample
+[[file:screenies/game_over_sample.jpg]]
+
+* TODO Hosting Clordle
+TBD.
