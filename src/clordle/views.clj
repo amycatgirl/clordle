@@ -22,7 +22,7 @@
     [:div.center-wordmark
      [:h1 "Clordle"]]
     [:div.actions
-     [:span "gh"]]]
+     [:a {:href "https://github.com/amycatgirl/clordle" :target "_blank"} "Git"]]]
    [:div#game
     [:div.golumn ;; as in game column, not the lord of the rings annoying gremlin
      (for [rid (range 0 6)]

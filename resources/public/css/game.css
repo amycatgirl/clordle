@@ -106,3 +106,21 @@ div#game div.form div#used-chars {
 	 flex-direction: row;
 	 max-width: 50%;
 }
+
+div.actions a[href^="https://github.com"] {
+    background-color: grey;
+    border-bottom: 3px solid darkgrey;
+    padding: 5px 10px;
+
+    border-radius: 15%;
+    
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    &:hover, &:active {
+	border-bottom-width: 0px;
+    }
+}

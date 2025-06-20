@@ -1,4 +1,5 @@
 (ns clordle.core
+  (:gen-class)
   (:require
    [compojure.core :refer [defroutes context GET POST]]
    [compojure.route :as route]
