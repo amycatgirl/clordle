@@ -13,7 +13,7 @@
 
 (defroutes app-routes
   (GET "/" [] views/main-page)
-  (GET "/puzzles/:id" [] views/main-page)
+  (GET "/puzzle/:id" [] views/main-page)
   (context "/api" []
            (POST "/guess/:id" [id :as request]
                  (api/respond-with-hint id (body-string request)))
