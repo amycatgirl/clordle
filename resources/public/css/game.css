@@ -27,6 +27,8 @@ div.center-wordmark {
 
 header div.actions {
        margin-right: 1rem;
+       display: inline-flex;
+       gap: 5px;
 }
 
 div#game, div#game .golumn {
@@ -107,20 +109,27 @@ div#game div.form div#used-chars {
 	 max-width: 50%;
 }
 
-div.actions a[href^="https://github.com"] {
+div.actions button {
+    border: none;
+    display: inline-box;
+}
+
+div.actions a[href^="https://github.com"],
+div.actions button {
     background-color: grey;
     border-bottom: 3px solid darkgrey;
     padding: 5px 10px;
 
-    border-radius: 15%;
+    border-radius: 15px;
     
     color: white;
     font-family: sans-serif;
     font-weight: bold;
+    cursor: pointer;
 
     text-decoration: none;
 
     &:hover, &:active {
-	border-bottom-width: 0px;
+	border-bottom: 3px solid grey;
     }
 }

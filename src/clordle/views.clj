@@ -22,6 +22,7 @@
     [:div.center-wordmark
      [:h1 "Clordle"]]
     [:div.actions
+     [:button#display-previous "Previous Puzzles"]
      [:a {:href "https://github.com/amycatgirl/clordle" :target "_blank"} "Git"]]]
    [:div#game
     [:div.golumn ;; as in game column, not the lord of the rings annoying gremlin
@@ -39,4 +40,7 @@
    [:dialog#youlose
     [:h2 "Better luck next time"]
     [:p.correct-word "The word was "]
-    [:button.close "Close"]]))
+    [:button.close "Close"]]
+   [:dialog#prev
+    [:h2 "Previous puzzles"]
+    [:div#replace-me]]))

@@ -7,17 +7,22 @@
    [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
    [clordle.views :as views]
    [clordle.api :as api]
-   [ring.util.request :refer [body-string]]))
+   [clordle.tasks :as tasks]
+   [ring.util.request :refer [body-string]]
+   [clordle.db :refer [setup-database-for-first-use]]))
 
 (defroutes app-routes
   (GET "/" [] views/main-page)
+  (GET "/puzzles/:id" [] views/main-page)
   (context "/api" []
            (POST "/guess/:id" [id :as request]
-                 (api/respond-with-hint (body-string request)))
+                 (api/respond-with-hint id (body-string request)))
            (POST "/giveup/:id" [id :as request]
-                 (api/respond-with-result (body-string request)))
+                 (api/respond-with-result id (body-string request)))
            (GET "/handshake" []
-                (api/handshake)))
+                (api/handshake))
+           (GET "/puzzles" []
+                (api/respond-with-all-puzzles)))
   (route/resources "/")
   (route/not-found "<h1>Sorry, we couldn't find the page you were looking for.</h1>"))
 
@@ -28,4 +33,6 @@
 
 (defn -main
   []
+  (setup-database-for-first-use)
+  (tasks/schedule-new-puzzle)
   (jetty/run-jetty #'app {:port 3000}))

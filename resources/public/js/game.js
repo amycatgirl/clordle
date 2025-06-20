@@ -31,8 +31,13 @@ class GameState {
 
 const text_input = document.querySelector("div.form input");
 const used_display = document.getElementById("used-chars");
+
 const youwin_dialog = document.getElementById("youwin");
 const youlose_dialog = document.getElementById("youlose");
+const prev_dialog = document.getElementById("prev");
+
+const prev_display_btn = document.getElementById("display-previous");
+
 const game_state = new GameState();
 
 function hintToClass(hint) {
@@ -94,7 +99,6 @@ function process_response(guess, response_body) {
 
 async function make_handshake() {
     const rest = await fetch("/api/handshake");
-    //                                              ⬇️ equivalent of 3 + 5
     const word = (await rest.text()).substring(3, 4 * 2);
 
     game_state.setSecret(word);
@@ -130,6 +134,22 @@ text_input.addEventListener("keydown", (ev) => {
     }
 });
 
+function replace_div(target, element) {
+    const target_el = document.querySelector(target)
+    const target_parent_el = target_el.parentElement;
+    target_el.remove();
+
+    target_parent_el.insertAdjacentHTML("beforeend", element);
+}
+
+async function query_previous_puzzles() {
+    const res = await fetch("/api/puzzles");
+    const el = await res.text();
+    replace_div("dialog#prev div#replace-me", el);
+
+    prev_dialog.showModal();
+}
+
 youwin_dialog.querySelector("button.close").addEventListener("click", () => {
     youwin_dialog.requestClose();
     text_input.disabled = true;
@@ -140,5 +160,10 @@ youlose_dialog.querySelector("button.close").addEventListener("click", () => {
     youlose_dialog.requestClose();
     text_input.disabled = true;
 });
+
+
+prev_display_btn.addEventListener("click", () => {
+    query_previous_puzzles();
+})
 
 make_handshake();
