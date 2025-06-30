@@ -1,7 +1,10 @@
 *
-!src\**
-!resources\**
-!screenies\**
+!src
+!src/**
+!resources
+!resources/**
+!screenies
+!screenies/**
 !project.clj
 !.gitignore
 !LICENSE
